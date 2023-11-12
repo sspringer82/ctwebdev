@@ -78,3 +78,8 @@ error.tsx
   - useRouter => router.push('/xxx')
 - `next/navigation` - notFound() - löst eine notfound exception aus
   - not-found.tsx wird in diesem Fall gerendert, falls vorhanden
+
+## Prerendering
+- statische seiten werden standardmäßig vorgerendert
+- dynamische routen können vorgerendert werden, wenn alle möglichen parameter bekannt sind
+- export async function generateStaticParams gibt ein Array aller parameter zurück
