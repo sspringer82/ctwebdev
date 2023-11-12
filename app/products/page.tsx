@@ -1,13 +1,23 @@
 import { getAllProducts } from '@/app/lib/prodcuts.api';
+import Search from '../ui/search';
 
-export default async function ProductsPage() {
-  const products = await getAllProducts();
+type Props = {
+  searchParams: {
+    name?: string;
+  };
+};
+
+export default async function ProductsPage({ searchParams }: Props) {
+  const filter = searchParams.name || '';
+
+  const products = await getAllProducts(filter);
 
   console.log(products);
 
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Produkte</h1>
+      <Search />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products.map((product) => (
           <div
