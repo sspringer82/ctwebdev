@@ -54,3 +54,18 @@ npx create-next-app@latest
 ## Error handling
 error.tsx 
 - Erzeugt eine Error Boundary, hat die Möglichkeit den renderprozess neu zu starten
+
+## Static vs. Dynamic rendering
+- Static rendering by default (zur Buildzeit vorgeneriert und on demand revalidated)
+  - keine dynamischen Funktionen, gecachte Daten
+- dynamic rendering bei jedem Request
+  - dynamische Funktionen und/oder nicht gecachte daten
+- dynamische funktionen: 
+  - cookies(), headers()
+  - useSearchParams() - bis zur nächsten suspense boundary
+  - searchParams page props
+- uncached data: https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating#opting-out-of-data-caching
+  - cache: 'no-store' im fetch
+  - revalidate: 0 im fetch
+  - const dynamic = 'force-dynamic
+  - ...
