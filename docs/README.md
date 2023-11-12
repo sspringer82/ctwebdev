@@ -23,3 +23,30 @@ npx create-next-app@latest
   - layout.tsx: Root Layout
   - page.tsx: / Seite
 
+# Client vs. Server Components
+
+## Server Components
+- Standard in App Router
+- werden serverseitig gerendert
+- Serverseitiges Data Fetching
+- Security: sensitive data bleibt serverseitig
+- Caching: Ergebnis kann wiederverwendet werden
+- Bundle Size: größere Abhängigkeiten können serverseitig bleiben
+- Initialer Page Load und First Contentful Paint: gefühlt schnellere Ergebnisse
+- SEO: gerendertes HTML kann indexiert werden
+- Streaming: Rendering in Chunks splitten
+- Achtung:
+  - Kein Lifecycle
+  - Kein State
+  - kann Async sein
+
+## Client Components
+- 'use client'
+- Reguläre React Komponenten
+- Interaktivität
+- Browser APIs (geolocation, localStorage)
+
+## Routing
+- filesystembasiertes Routing
+- page.tsx definieren die Seiten
+- layout.tsx shared layout in verzeichnishierarchie (root layout erforderlich)
