@@ -12,7 +12,7 @@
 | 11:15 | 11:30 | File based Routing                                     |
 | 11:30 | 11:45 | Error Handling                                         |
 | 11:45 | 12:00 | Search & Filter - Aufgabe 3: Search & Filter           |
-| 12:00 | 12:15 | Aufgabe 4: Detailseiten                                |
+| 12:00 | 12:15 | Aufgabe 4: Detailseiten, not found                     |
 | 12:15 | 12:30 | Prerendering                                           |
 | 12:30 | 12:45 | Pause                                                  |
 | 12:45 | 13:00 | Pause                                                  |
