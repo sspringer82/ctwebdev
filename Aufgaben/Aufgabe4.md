@@ -6,6 +6,7 @@ Erzeuge für die Produkte Detailseiten
 2. Erzeuge dort eine page.tsx-Datei
 3. Nutze die params.id-Prop, um auf die Variable in der Route zuzugreifen
 4. Lade die Daten des Produkts aus dem Backend und zeige sie an.
+5. Füge in der Übersichtsliste Links (`Link` aus `next/link`) auf die Detailseite ein und auf der Detailseite einen Link zurück zur Übersicht
 
 Falls die Daten nicht gefunden werden konnte, nutze die notFound-Methode aus 'next/navigation', um dies anzuzeigen
 
