@@ -50,3 +50,7 @@ npx create-next-app@latest
 - filesystembasiertes Routing
 - page.tsx definieren die Seiten
 - layout.tsx shared layout in verzeichnishierarchie (root layout erforderlich)
+
+## Error handling
+error.tsx 
+- Erzeugt eine Error Boundary, hat die Möglichkeit den renderprozess neu zu starten
