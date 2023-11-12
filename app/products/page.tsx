@@ -1,5 +1,6 @@
 import { getAllProducts } from '@/app/lib/prodcuts.api';
 import Search from '../ui/search';
+import Link from 'next/link';
 
 type Props = {
   searchParams: {
@@ -34,6 +35,12 @@ export default async function ProductsPage({ searchParams }: Props) {
             <p className="mt-2 font-semibold">Preis: ${product.price}</p>
             <p className="text-sm text-gray-500">Größe: {product.size}</p>
             <p className="text-sm text-gray-500">Gewicht: {product.weight}kg</p>
+            <Link
+              href={`/products/${product.id}`}
+              className="mt-4 rounded-md bg-blue-500 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-400"
+            >
+              Details
+            </Link>
           </div>
         ))}
       </div>

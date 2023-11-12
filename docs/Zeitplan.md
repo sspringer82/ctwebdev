@@ -31,7 +31,7 @@
 | 16:00 | 16:15 | Aufgabe 8: Admin auth - Dashboard                      |
 | 16:15 | 16:30 | Streaming Loading indicator                            |
 | 16:30 | 16:45 | Aufgabe 9: Dashboard streaming                         |
-| 16:45 | 17:00 |                                                        |
+| 16:45 | 17:00 | Testing - Aufgabe 10: Page + Component Test            |
 
 
 
