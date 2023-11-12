@@ -1,4 +1,4 @@
-import { getProductById } from '@/app/lib/prodcuts.api';
+import { getAllProducts, getProductById } from '@/app/lib/prodcuts.api';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -7,6 +7,11 @@ type Props = {
     id: string;
   };
 };
+
+export async function generateStaticParams(): Promise<{ id: string }[]> {
+  const products = await getAllProducts('');
+  return products.map((product) => ({ id: product.id.toString() }));
+}
 
 export default async function DetailPage({ params }: Props) {
   const id = parseInt(params.id, 10);

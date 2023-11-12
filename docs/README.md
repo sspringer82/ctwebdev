@@ -74,7 +74,7 @@ error.tsx
 - [xxx] als Verzeichnisname. xxx steht für eine Variable
 - Zugriff über params.xxx in den Page Props
 - Navigation
-  - <Link href="">
+  - <Link href=""> => prefetching im build modus
   - useRouter => router.push('/xxx')
 - `next/navigation` - notFound() - löst eine notfound exception aus
   - not-found.tsx wird in diesem Fall gerendert, falls vorhanden
