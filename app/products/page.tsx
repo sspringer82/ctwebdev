@@ -1,6 +1,7 @@
 import { getAllProducts } from '@/app/lib/prodcuts.api';
 import Search from '../ui/search';
 import Link from 'next/link';
+import { addToCart } from '../lib/actions';
 
 type Props = {
   searchParams: {
@@ -12,8 +13,6 @@ export default async function ProductsPage({ searchParams }: Props) {
   const filter = searchParams.name || '';
 
   const products = await getAllProducts(filter);
-
-  console.log(products);
 
   return (
     <div className="p-4">
@@ -41,6 +40,14 @@ export default async function ProductsPage({ searchParams }: Props) {
             >
               Details
             </Link>
+
+            <form action={addToCart}>
+              <input type="hidden" name="product" value={product.id} />
+              <label>
+                Menge: <input type="text" name="amount" />
+              </label>
+              <button type="submit">hinzufügen</button>
+            </form>
           </div>
         ))}
       </div>
