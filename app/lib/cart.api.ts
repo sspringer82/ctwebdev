@@ -1,3 +1,5 @@
+import { Cart } from './types';
+
 type Arg = {
   arg: {
     city: string;
@@ -19,7 +21,7 @@ export async function submitCart(url: string, { arg }: Arg): Promise<void> {
   }
 }
 
-export async function getAllCarts() {
+export async function getAllCarts(): Promise<Cart[]> {
   const delay = 1000;
   return new Promise((resolve, reject) => {
     setTimeout(async () => {
