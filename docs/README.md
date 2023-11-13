@@ -83,3 +83,19 @@ error.tsx
 - statische seiten werden standardmäßig vorgerendert
 - dynamische routen können vorgerendert werden, wenn alle möglichen parameter bekannt sind
 - export async function generateStaticParams gibt ein Array aller parameter zurück
+
+## Styling
+- inline styling
+- css import
+- css modules
+  - Datei endet auf .module.css
+  - import styles from '@/bla/blubb';
+  - classNames={styles.asdf}
+  - clsx-Bibliothek 
+- css-in-js (styled-components, emotion)
+- sass
+  - npm install -D sass
+  - style.import scss
+- Tailwind
+
+## Material-UI
