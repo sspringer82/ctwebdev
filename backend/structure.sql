@@ -8,6 +8,27 @@ CREATE TABLE products (
   image TEXT
 );
 
+
+CREATE TABLE carts (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  status TEXT,
+  firstname TEXT,
+  lastname TEXT,
+  street TEXT,
+  zip TEXT,
+  city TEXT,
+  country TEXT
+);
+
+CREATE TABLE cart_products (
+  cart_id INTEGER,
+  product_id INTEGER,
+  amount INTEGER,
+  PRIMARY KEY (cart_id, product_id),
+  FOREIGN KEY (cart_id) REFERENCES carts(id) ON DELETE CASCADE,
+  FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
 INSERT INTO products (name, description, price, size, weight, image) VALUES
 ('Apfel', 'Ein knackiger, saftiger grüner Apfel, ideal für einen gesunden Snack zwischendurch. Reich an Vitaminen und Mineralien, perfekt für einen Fruchtsalat oder als Beilage im Müsli.', 0.99, '8cm x 8cm x 8cm', 0.15, 'apfel.jpg'),
 ('Brot', 'Vollkornbrot mit einer kräftigen Kruste und weicher Mitte. Hergestellt aus hochwertigem Vollkornmehl. Ideal für Sandwiches oder als Beilage zu Suppen.', 2.50, '30cm x 15cm x 10cm', 0.5, 'brot.jpg'),
@@ -29,23 +50,3 @@ INSERT INTO products (name, description, price, size, weight, image) VALUES
 ('Salz', 'Reines Meersalz, perfekt zum Würzen aller Arten von Gerichten. Ein Grundnahrungsmittel, das in keiner Küche fehlen sollte.', 0.50, '15cm x 10cm x 5cm', 0.5, 'salz.jpg'),
 ('Pfeffer', 'Schwarzer Pfeffer, bietet eine pikante Würze, die Gerichten eine feine Schärfe verleiht. Ideal für Fleischgerichte, Saucen und Marinaden.', 3.99, '10cm x 10cm x 5cm', 0.1, 'pfeffer.jpg'),
 ('Olivenöl', 'Hochwertiges extra natives Olivenöl, kaltgepresst mit einem fruchtigen und leicht würzigen Geschmack. Ideal für Salatdressings, zum Kochen oder als Dip.', 7.99, '25cm x 8cm x 8cm', 0.5, 'olivenoel.jpg');
-
-CREATE TABLE carts (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  status TEXT,
-  firstname TEXT,
-  lastname TEXT,
-  street TEXT,
-  zip TEXT,
-  city TEXT,
-  country TEXT
-);
-
-CREATE TABLE cart_products (
-  cart_id INTEGER,
-  product_id INTEGER,
-  amount INTEGER,
-  PRIMARY KEY (cart_id, product_id),
-  FOREIGN KEY (cart_id) REFERENCES carts(id) ON DELETE CASCADE,
-  FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
-);

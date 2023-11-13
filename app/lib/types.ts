@@ -10,8 +10,13 @@ export type Product = {
 
 export type Cart = {
   id: number;
-  user: number;
-  items: CartItem[];
+  status: string;
+  firstname: string;
+  lastname: string;
+  street: string;
+  zip: string;
+  city: string;
+  country: string;
 };
 
 export type CartItem = {
@@ -23,4 +28,11 @@ export type User = {
   id: number;
   name: string;
   password: string;
+};
+
+export type CartContent = {
+  name: string;
+  amount: number;
+  pricePerUnit: number;
+  totalPrice: number;
 };

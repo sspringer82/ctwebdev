@@ -1,4 +1,5 @@
-import { Product } from './types';
+import { cookies } from 'next/headers';
+import { CartContent, Product } from './types';
 
 export async function getAllProducts(filter: string): Promise<Product[]> {
   const url = new URL('http://localhost:8080/products');
@@ -23,4 +24,20 @@ export async function getProductById(id: number): Promise<Product> {
   const product = await response.json();
 
   return product;
+}
+
+export async function getCartContent(): Promise<CartContent[]> {
+  const cartId = cookies().get('cart')?.value;
+
+  const url = `http://localhost:8080/carts/${cartId}`;
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error('Unable to get cart content');
+  }
+
+  const cartContent = await response.json();
+
+  return cartContent;
 }
