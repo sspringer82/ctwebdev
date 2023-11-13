@@ -29,6 +29,14 @@ CREATE TABLE cart_products (
   FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 );
 
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  email TEXT,
+  password TEXT
+);
+
+INSERT INTO users (email, password) VALUES ('admin.istrator@example.com', 'test123'), ('admin@example.com', 'test123');
+
 INSERT INTO products (name, description, price, size, weight, image) VALUES
 ('Apfel', 'Ein knackiger, saftiger grüner Apfel, ideal für einen gesunden Snack zwischendurch. Reich an Vitaminen und Mineralien, perfekt für einen Fruchtsalat oder als Beilage im Müsli.', 0.99, '8cm x 8cm x 8cm', 0.15, 'apfel.jpg'),
 ('Brot', 'Vollkornbrot mit einer kräftigen Kruste und weicher Mitte. Hergestellt aus hochwertigem Vollkornmehl. Ideal für Sandwiches oder als Beilage zu Suppen.', 2.50, '30cm x 15cm x 10cm', 0.5, 'brot.jpg'),

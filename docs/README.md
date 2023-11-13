@@ -110,3 +110,14 @@ error.tsx
   - mit `redirect` aus 'next/navigation' weiterleiten
   - useFormStatus, um loading indicator zu zeigen `const {pending} = useFormStatus()` aus react-dom
   - Fehlerbehandlung : ServerAction gibt etwas zurück => state aus useFormState - const [state, formAction] = useFormState(createTodo, initialState);
+
+## API Routen
+
+## Auth
+- npm install next-auth@beta bcrypt
+- Login Page + Form Erzeugen
+- .env mit Auth URL und auth secret
+- auth.config.ts
+- middleware.ts
+- authenticate.action
+- signout
