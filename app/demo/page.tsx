@@ -1,6 +1,7 @@
 'use client';
 
 import styles from '@/app/demo/demo.module.css';
+import { Button } from '@mui/material';
 
 import styled from 'styled-components';
 
@@ -13,6 +14,7 @@ export default function DemoPage() {
     <>
       <h1 className={styles.headline}>Hallo Welt</h1>
       <Content>Hallo Welt</Content>
+      <Button>Huhu</Button>
     </>
   );
 }
