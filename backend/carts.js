@@ -4,6 +4,22 @@ import { saveDatabase } from './db.js';
 export function createCartsRouter(db) {
   const router = Router();
 
+  router.get('/', (request, response) => {
+    const query = 'SELECT * FROM carts';
+
+    const results = [];
+
+    const stmt = db.prepare(query);
+    while (stmt.step()) {
+      const row = stmt.getAsObject();
+      console.log(row);
+      results.push(row);
+    }
+    stmt.free();
+
+    response.json(results);
+  });
+
   router.get('/:id', (request, response) => {
     const cartId = parseInt(request.params.id, 10);
 
