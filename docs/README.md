@@ -101,4 +101,12 @@ error.tsx
 ## Material-UI
 - Installation und Einbettung
 
-## 
+## Server Actions
+- async Funktionen, die von den Komponenten aufgerufen werden
+- in Server Components definiert oder von Client components aufgerufen werden
+  - <form action={server action}>
+  - 'use server' innerhalb der Funktion
+  - kann `revalidatePath` aus 'next/cache' aufrufen, um einen Pfad nue zu rendern (oder `revalidateTag`)
+  - mit `redirect` aus 'next/navigation' weiterleiten
+  - useFormStatus, um loading indicator zu zeigen `const {pending} = useFormStatus()` aus react-dom
+  - Fehlerbehandlung : ServerAction gibt etwas zurück => state aus useFormState - const [state, formAction] = useFormState(createTodo, initialState);
