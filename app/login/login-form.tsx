@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+
 import { TextField, Button, Typography } from '@mui/material';
 import { useFormState } from 'react-dom';
 import { authenticate } from '../lib/actions';

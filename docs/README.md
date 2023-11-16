@@ -121,3 +121,9 @@ error.tsx
 - middleware.ts
 - authenticate.action
 - signout
+
+## Streaming
+
+## Testing
+
+npm install --save-dev vitest @testing-library/react @testing-library/jest-dom

@@ -1,5 +1,4 @@
 import { cookies } from 'next/headers';
-import { NextRequest, NextResponse } from 'next/server';
 
 export async function PUT(request: Request) {
   const cartId = cookies().get('cart')?.value;

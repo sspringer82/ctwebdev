@@ -19,8 +19,6 @@ export async function addToCart(formData: FormData) {
 
   const cartId = cookies().get('cart')!.value;
 
-  console.log(cartId);
-
   const data = {
     productId: formData.get('product'),
     amount: formData.get('amount'),
@@ -28,14 +26,13 @@ export async function addToCart(formData: FormData) {
 
   const url = `http://localhost:8080/carts/items/${cartId}`;
 
-  const response = await fetch(url, {
+  await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
   });
-  console.log(response.ok);
 }
 
 export async function authenticate(
