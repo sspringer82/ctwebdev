@@ -2,6 +2,7 @@ export type Book = {
   id: string;
   isbn: string;
   title: string;
+  author: string;
   release: Date;
   pages: number;
   language: string;
