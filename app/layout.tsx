@@ -27,13 +27,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 text-gray-900`}
       >
-        <header></header>
-        {children}
-        <footer className="flex justify-between fixed bottom-0 left-0 w-full p-4">
+        <header className="bg-white shadow-md fixed top-0 left-0 w-full z-10">
+          <div className="container mx-auto flex items-center justify-center p-4">
+            <h1 className="text-2xl font-bold">My Library</h1>
+          </div>
+        </header>
+        <main className="pt-20 container mx-auto px-4">{children}</main>
+        <footer className="bg-white shadow-md fixed bottom-0 left-0 w-full p-4 flex justify-between items-center text-sm">
           <p>&copy; {new Date().getFullYear()} Example Company</p>
-          <Link href="/legal">Legal</Link>
+          <Link className="hover:text-gray-600" href="/legal">
+            Legal
+          </Link>
         </footer>
       </body>
     </html>
