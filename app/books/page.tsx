@@ -14,7 +14,6 @@ const BooksListPage: NextPage = async () => {
 
   return (
     <div>
-      <h1>Books List</h1>
       {errorMessage && <div>{errorMessage}</div>}
       {books.length === 0 && <div>No book found.</div>}
       {books.length > 0 && (
