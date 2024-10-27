@@ -10,6 +10,12 @@
     "backend": "json-server -p 3001 backend/data.json"
   },
   "dependencies": {
+    "@emotion/cache": "^11.13.1",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.5",
+    "@mui/material": "^6.1.5",
+    "@mui/material-nextjs": "^6.1.5",
     "babel-plugin-react-compiler": "^19.0.0-beta-8a03594-20241020",
     "json-server": "^1.0.0-beta.3",
     "next": "15.0.1",

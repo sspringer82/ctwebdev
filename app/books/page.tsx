@@ -1,6 +1,18 @@
 import { NextPage } from 'next';
 import { Book } from '@/app/types/Book';
 import { getAllBooks } from '../api/book';
+import {
+  Container,
+  Typography,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Alert,
+} from '@mui/material';
 
 const BooksListPage: NextPage = async () => {
   let books: Book[] = [];
@@ -13,40 +25,49 @@ const BooksListPage: NextPage = async () => {
   }
 
   return (
-    <div>
-      {errorMessage && <div>{errorMessage}</div>}
-      {books.length === 0 && <div>No book found.</div>}
+    <Container>
+      {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
+      {books.length === 0 && <Typography>No book found.</Typography>}
       {books.length > 0 && (
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>ISBN</th>
-              <th>Title</th>
-              <th>Author</th>
-              <th>Release Date</th>
-              <th>Pages</th>
-              <th>Language</th>
-              <th>Rating</th>
-            </tr>
-          </thead>
-          <tbody>
-            {books.map((book) => (
-              <tr key={book.id}>
-                <td>{book.id}</td>
-                <td>{book.isbn}</td>
-                <td>{book.title}</td>
-                <td>{book.author}</td>
-                <td>{book.release.getFullYear()}</td>
-                <td>{book.pages}</td>
-                <td>{book.language}</td>
-                <td>{book.rating}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>ID</TableCell>
+                <TableCell>ISBN</TableCell>
+                <TableCell>Title</TableCell>
+                <TableCell>Author</TableCell>
+                <TableCell>Release Date</TableCell>
+                <TableCell>Pages</TableCell>
+                <TableCell>Language</TableCell>
+                <TableCell>Rating</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {books.map((book) => (
+                <TableRow
+                  key={book.id}
+                  sx={{
+                    '&:hover': {
+                      backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                    },
+                  }}
+                >
+                  <TableCell>{book.id}</TableCell>
+                  <TableCell>{book.isbn}</TableCell>
+                  <TableCell>{book.title}</TableCell>
+                  <TableCell>{book.author}</TableCell>
+                  <TableCell>{book.release.getFullYear()}</TableCell>
+                  <TableCell>{book.pages}</TableCell>
+                  <TableCell>{book.language}</TableCell>
+                  <TableCell>{book.rating}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       )}
-    </div>
+    </Container>
   );
 };
 
