@@ -1,13 +1,5 @@
-import { getAllBooks, getBook } from '@/app/api/book';
-import { Book } from '@/app/types/Book';
-import {
-  Container,
-  Paper,
-  Box,
-  Typography,
-  Alert,
-  Button,
-} from '@mui/material';
+import { getAllBooks } from '@/app/api/book';
+import { Container, Paper, Box, Button } from '@mui/material';
 import Link from 'next/link';
 import { NextPage } from 'next';
 import { Suspense } from 'react';
