@@ -1,6 +1,9 @@
 import { NextPage } from 'next';
 import { getAllUsers } from '@/app/api/user';
 import { User } from '@/app/types/User';
+import { IconButton } from '@mui/material';
+import Link from 'next/link';
+import InfoIcon from '@mui/icons-material/Info';
 
 const UsersListPage: NextPage = async () => {
   let users: User[] = [];
@@ -22,6 +25,11 @@ const UsersListPage: NextPage = async () => {
           {users.map((user) => (
             <li key={user.id}>
               {user.name} ({user.email})
+              <Link href={`/users/${user.id}`} passHref>
+                <IconButton aria-label="details">
+                  <InfoIcon />
+                </IconButton>
+              </Link>
             </li>
           ))}
         </ul>
