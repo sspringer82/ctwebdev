@@ -1,4 +1,4 @@
-import { getBook } from '@/app/api/book';
+import { getAllBooks, getBook } from '@/app/api/book';
 import { Book } from '@/app/types/Book';
 import {
   Container,
@@ -85,3 +85,11 @@ const BookDetailPage: NextPage<Props> = async ({ params }) => {
 };
 
 export default BookDetailPage;
+
+export async function generateStaticParams() {
+  const books = (await getAllBooks()).filter((book) => book.id !== '2');
+
+  return books.map((book) => ({
+    id: book.id,
+  }));
+}

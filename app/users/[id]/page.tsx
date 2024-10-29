@@ -1,4 +1,4 @@
-import { getUser } from '@/app/api/user';
+import { getAllUsers, getUser } from '@/app/api/user';
 import { User } from '@/app/types/User';
 import { NextPage } from 'next';
 import Link from 'next/link';
@@ -37,3 +37,11 @@ const UserDetailPage: NextPage<Props> = async ({ params }) => {
 };
 
 export default UserDetailPage;
+
+export async function generateStaticParams() {
+  const users = (await getAllUsers()).filter((user) => user.id !== '2');
+
+  return users.map((user) => ({
+    id: user.id,
+  }));
+}
