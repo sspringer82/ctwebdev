@@ -12,7 +12,10 @@ import {
   TableRow,
   Paper,
   Alert,
+  IconButton,
 } from '@mui/material';
+import Link from 'next/link';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 const BooksListPage: NextPage = async () => {
   let books: Book[] = [];
@@ -41,6 +44,7 @@ const BooksListPage: NextPage = async () => {
                 <TableCell>Pages</TableCell>
                 <TableCell>Language</TableCell>
                 <TableCell>Rating</TableCell>
+                <TableCell align="center">Details</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -61,6 +65,13 @@ const BooksListPage: NextPage = async () => {
                   <TableCell>{book.pages}</TableCell>
                   <TableCell>{book.language}</TableCell>
                   <TableCell>{book.rating}</TableCell>
+                  <TableCell align="center">
+                    <Link href={`/books/${book.id}`} passHref>
+                      <IconButton aria-label="details" color="primary">
+                        <VisibilityIcon />
+                      </IconButton>
+                    </Link>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
