@@ -1,4 +1,5 @@
 import { Book } from '@/app/types/Book';
+import { wait } from '@/util/wait';
 
 export async function getAllBooks(): Promise<Book[]> {
   const response = await fetch('http://localhost:3001/books');
@@ -22,4 +23,14 @@ export async function getBook(id: string): Promise<Book> {
     ...book,
     release: new Date(book.release),
   };
+}
+
+export async function getBookDetails(id: string): Promise<Book> {
+  await wait(5_000);
+  return getBook(id);
+}
+
+export async function getBookRating(id: string): Promise<Book> {
+  await wait(10_000);
+  return getBook(id);
 }

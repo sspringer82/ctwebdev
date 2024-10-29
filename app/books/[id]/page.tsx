@@ -75,7 +75,7 @@ const BookDetailPage: NextPage<Props> = async ({ params }) => {
         <Box mt={4}>
           <Link href="/books" passHref>
             <Button variant="contained" color="primary">
-              Zurück zur Liste
+              Back to list
             </Button>
           </Link>
         </Box>
