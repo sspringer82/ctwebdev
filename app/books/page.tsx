@@ -16,6 +16,7 @@ import {
 } from '@mui/material';
 import Link from 'next/link';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import Rating from './components/rating';
 
 const BooksListPage: NextPage = async () => {
   let books: Book[] = [];
@@ -64,7 +65,9 @@ const BooksListPage: NextPage = async () => {
                   <TableCell>{book.release.getFullYear()}</TableCell>
                   <TableCell>{book.pages}</TableCell>
                   <TableCell>{book.language}</TableCell>
-                  <TableCell>{book.rating}</TableCell>
+                  <TableCell>
+                    <Rating book={book} />
+                  </TableCell>
                   <TableCell align="center">
                     <Link href={`/books/${book.id}`} passHref>
                       <IconButton aria-label="details" color="primary">

@@ -4,6 +4,7 @@ import { User } from '@/app/types/User';
 import { IconButton } from '@mui/material';
 import Link from 'next/link';
 import InfoIcon from '@mui/icons-material/Info';
+import Delete from './components/delete';
 
 const UsersListPage: NextPage = async () => {
   let users: User[] = [];
@@ -30,6 +31,7 @@ const UsersListPage: NextPage = async () => {
                   <InfoIcon />
                 </IconButton>
               </Link>
+              <Delete id={user.id} />
             </li>
           ))}
         </ul>
