@@ -1,12 +1,24 @@
 import { wait } from '@/util/wait';
 import { User } from '../types/User';
 
-export async function getAllUsers(): Promise<User[]> {
-  const response = await fetch('http://localhost:3001/users');
+export async function getAllUsers(search?: {
+  name: string;
+  email: string;
+}): Promise<User[]> {
+  const response = await fetch(`http://localhost:3001/users`);
   if (!response.ok) {
     throw new Error('An error occurred while fetching the data.');
   }
-  return response.json();
+  const users = (await response.json()) as User[];
+
+  if (search) {
+    return users.filter(
+      (user) =>
+        user.name.toLowerCase().includes(search.name.toLowerCase()) &&
+        user.email.toLowerCase().includes(search.email.toLowerCase())
+    );
+  }
+  return users;
 }
 
 export async function getUser(id: string): Promise<User> {
