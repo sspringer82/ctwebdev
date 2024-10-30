@@ -14,7 +14,7 @@ export async function getAllBooks(): Promise<Book[]> {
 }
 
 export async function getBook(id: string): Promise<Book> {
-  const response = await fetch(`http://localhost:3001/books/${id}`);
+  const response = await fetch(`http://localhost:3001/booksxxx/${id}`);
   if (!response.ok) {
     throw new Error('An error occurred while fetching the data.');
   }

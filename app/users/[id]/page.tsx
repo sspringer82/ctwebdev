@@ -19,6 +19,7 @@ const UserDetailPage: NextPage<Props> = async ({ params }) => {
     user = await getUser(id);
   } catch (error) {
     errorMessage = error instanceof Error ? error.message : 'An error occurred';
+    throw error;
   }
 
   return (

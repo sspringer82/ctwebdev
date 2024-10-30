@@ -32,6 +32,7 @@ const BookDetailPage: NextPage<Props> = async ({ params }) => {
     }
   } catch (error) {
     errorMessage = error instanceof Error ? error.message : 'An error occurred';
+    throw error;
   }
 
   return (

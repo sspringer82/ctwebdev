@@ -10,8 +10,8 @@ export async function getAllUsers(): Promise<User[]> {
 }
 
 export async function getUser(id: string): Promise<User> {
-  await wait(10_000);
-  const response = await fetch(`http://localhost:3001/users/${id}`);
+  // await wait(10_000);
+  const response = await fetch(`http://localhost:3001/usersxxx/${id}`);
   if (!response.ok) {
     throw new Error('An error occurred while fetching the data.');
   }
