@@ -1,5 +1,6 @@
 'use client';
 
+import { deleteUser } from '@/app/actions/user';
 import { useRouter } from 'next/navigation';
 
 type Props = {
@@ -9,11 +10,17 @@ type Props = {
 const Delete: React.FC<Props> = ({ id }) => {
   const router = useRouter();
   async function handleClick() {
-    await fetch(`/users/api/${id}`, {
-      method: 'DELETE',
-    });
+    // await fetch(`/users/api/${id}`, {
+    //   method: 'DELETE',
+    // });
 
-    router.refresh();
+    // router.refresh();
+
+    try {
+      await deleteUser(id);
+    } catch (error) {
+      console.log('whoopsie', error);
+    }
   }
 
   return <button onClick={handleClick}>Delete</button>;

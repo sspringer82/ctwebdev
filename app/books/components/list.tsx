@@ -18,6 +18,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import Rating from '../components/rating';
 import FAB from './fab';
 import { Edit } from '@mui/icons-material';
+import Delete from './delete';
 
 type Props = {
   search?: string;
@@ -52,6 +53,7 @@ const List: React.FC<Props> = async ({ search }) => {
                 <TableCell>Rating</TableCell>
                 <TableCell align="center">Details</TableCell>
                 <TableCell align="center">Edit</TableCell>
+                <TableCell align="center">Delete</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -87,6 +89,9 @@ const List: React.FC<Props> = async ({ search }) => {
                         <Edit />
                       </IconButton>
                     </Link>
+                  </TableCell>
+                  <TableCell>
+                    <Delete id={book.id} />
                   </TableCell>
                 </TableRow>
               ))}

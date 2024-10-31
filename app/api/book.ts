@@ -75,3 +75,17 @@ export async function saveBook(book: CreateBook): Promise<string> {
   revalidatePath('/books');
   redirect('/books');
 }
+
+export async function deleteBook(id: string): Promise<void> {
+  try {
+    const response = await fetch(`http://localhost:3001/books/${id}`, {
+      method: 'DELETE',
+    });
+    if (!response.ok) {
+      throw new Error('Failed to delete book');
+    }
+  } catch (error) {
+    throw error;
+  }
+  revalidatePath('/books');
+}

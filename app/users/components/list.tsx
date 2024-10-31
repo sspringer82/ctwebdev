@@ -1,8 +1,9 @@
 import { getAllUsers } from '@/app/api/user';
 import { User } from '@/app/types/User';
-import { Delete, Info as InfoIcon } from '@mui/icons-material';
+import { Info as InfoIcon } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 import Link from 'next/link';
+import Delete from './delete';
 
 type Props = {
   search?: {
