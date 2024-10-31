@@ -5,6 +5,9 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import { Roboto } from 'next/font/google';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
+import { signOut } from '@/auth';
+import { Logout } from '@mui/icons-material';
+import { Button, Box } from '@mui/material';
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -30,9 +33,28 @@ export default function RootLayout({
       >
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-            <header className="bg-white shadow-md fixed top-0 left-0 w-full z-10">
+            <header className="bg-white shadow-md fixed top-0 left-0 w-full z-10 flex">
               <div className="container mx-auto flex items-center justify-center p-4">
                 <h1 className="text-2xl font-bold">My Library</h1>
+              </div>
+              <div>
+                <form
+                  action={async () => {
+                    'use server';
+                    await signOut();
+                  }}
+                >
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    startIcon={<Logout />}
+                  >
+                    <Box sx={{ display: { md: 'none', lg: 'inline' } }}>
+                      Sign&nbsp;Out
+                    </Box>
+                  </Button>
+                </form>
               </div>
             </header>
             <main className="pt-20 container mx-auto px-4">{children}</main>
