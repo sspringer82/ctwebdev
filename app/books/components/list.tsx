@@ -16,6 +16,8 @@ import {
 import Link from 'next/link';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Rating from '../components/rating';
+import FAB from './fab';
+import { Edit } from '@mui/icons-material';
 
 type Props = {
   search?: string;
@@ -49,6 +51,7 @@ const List: React.FC<Props> = async ({ search }) => {
                 <TableCell>Language</TableCell>
                 <TableCell>Rating</TableCell>
                 <TableCell align="center">Details</TableCell>
+                <TableCell align="center">Edit</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -78,12 +81,20 @@ const List: React.FC<Props> = async ({ search }) => {
                       </IconButton>
                     </Link>
                   </TableCell>
+                  <TableCell align="center">
+                    <Link href={`/books/form/${book.id}`} passHref>
+                      <IconButton aria-label="details" color="primary">
+                        <Edit />
+                      </IconButton>
+                    </Link>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
       )}
+      <FAB linkTarget="/books/form" />
     </Container>
   );
 };

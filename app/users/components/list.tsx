@@ -41,6 +41,7 @@ const List: React.FC<Props> = async ({ search }) => {
           ))}
         </ul>
       )}
+      <Link href="/users/form">create user</Link>
     </div>
   );
 };
